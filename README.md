@@ -107,8 +107,8 @@ $conf['composer_manager_file_dir'] = '../lib/' . $site_dir;
 ```
 
 *NOTE:* The `sites/*/` directories may seem like an obvious location for the
-libraries, however Drupal removed write permissions to these directories which
-can cause frustration.
+libraries, however Drupal removes write permissions to these directories on
+every page load which can cause frustration.
 
 #### Production Environments
 
