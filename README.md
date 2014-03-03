@@ -15,8 +15,9 @@ possible.
 ## Installation
 
 * Follow the [standard module installation guide](https://drupal.org/documentation/install/modules-themes).
-* Refer to the [Usage For Site Builders](#usage-for-site-builders) section for
-  installing and updating third-party libraries required by contributed modules.
+* Refer to the [Usage For Site Builders - Maintaining Dependencies](#usage-for-site-builders---maintaining-dependencies)
+  section for installing and updating third-party libraries required by
+  contributed modules.
 
 ## Usage For Site Builders - Maintaining Dependencies
 
