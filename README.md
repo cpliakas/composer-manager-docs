@@ -15,17 +15,19 @@ possible.
 ## Installation
 
 * Follow the [standard module installation guide](https://drupal.org/documentation/install/modules-themes).
-* Refer to the [Usage For Site Builders - Maintaining Dependencies](#usage-for-site-builders---maintaining-dependencies)
+* Refer to the [Maintaining Dependencies](#maintaining-dependencies)
   section for installing and updating third-party libraries required by
   contributed modules.
 
-## Usage For Site Builders - Maintaining Dependencies
+## Usage For Site Builders
+
+### Maintaining Dependencies
 
 As modules are enabled and disabled, Composer Manager maintains a list of their
 requirements. There are two ways to install and update the contributed
 modules' dependencies:
 
-### Automatically With Drush (Recommended)
+#### Automatically With Drush (Recommended)
 
 Using `drush en` and `drush dis` to enable and disable modules respectively will
 automatically generate the consolidated `composer.json` file and run the
@@ -34,7 +36,7 @@ appropriate Composer commands to install and update the required dependencies.
 This technique introduces the least amount of friction with existing workflows
 and is strongly recommended.
 
-### Manually With Composer
+#### Manually With Composer
 
 If you do not wish to use Drush, you must manually use Composer's command line
 tool to install and update dependencies whenever modules are enabled or
@@ -51,6 +53,85 @@ dependencies required by contributed module:
 
 Refer to [Composer's documentaton](https://getcomposer.org/doc/) for more
 details on how Composer works.
+
+### Best Practices
+
+Unfortunately there is arguably no 80% use case that guides sane defaults. Site
+builders will likely have to configure Composer Manager according to their
+environment, so this section outlines best practices and techniques to help
+guide a sustainable, reliable installation.
+
+#### Recommended Settings
+
+It is recommended to maintain a project structure where the composer files and
+`vendor/` directory exist alongside the document root. This can be achieved by
+modifying the following options in Composer Manager's settings page.
+
+* Vendor Directory: `../vendor`
+* Composer File Directory: `../`
+
+You can also set the options in settings.php by adding the following variables:
+
+```php
+$conf['composer_manager_vendor_dir'] = '../vendor';
+$conf['composer_manager_file_dir'] = '../';
+```
+
+*NOTE:* The recommended settings are not the defaults because we cannot assume
+that this structure is viable for all use cases. Furthermore, the "Composer File
+Directory" is set to a path we know is writable by the web server so the
+automatic building of `composer.json` works out of the box.
+
+#### Multisite
+
+It is recommended that each multisite installation has it's own library space
+since the dependencies are tied to which modules are enabled or disabled and
+can differ between sites. Add the following snippet to `settings.php` to group
+the libraries by site in a directory outside of the document root:
+
+```php
+// Capture the site dir, e.g. "default", "example.localhost", etc.
+$site_dir = basename(__DIR__);
+$conf['composer_manager_vendor_dir'] = '../lib/' . $site_dir . '/vendor';
+$conf['composer_manager_file_dir'] = '../lib/' . $site_dir;
+```
+
+*NOTE:* The `sites/*/` directories may seem like an obvious location for the
+libraries, however Drupal removed write permissions to these directories which
+can cause frustration.
+
+#### Production Environments
+
+Dependencies should be managed in development environments and not in production.
+Therefore it is recommended to disable the checkboxes that automatically build
+the composer.json file and run Composer commands when enabling or disabling
+modules on production environments.
+
+Assuming that you can detect whether the site is in production mode via an
+environment variable, adding the following snippet to `settings.php` will
+disable the options where appropriate:
+
+```php
+// Modify the logic according to your environment.
+if (getenv('APP_ENV') == 'prod') {
+  $conf['composer_manager_autobuild_file'] = 0;
+  $conf['composer_manager_autobuild_packages'] = 0;
+}
+```
+
+## Usage For Module Maintainers
+
+Module maintainers can use Composer Manager to maintain their dependencies by
+creating a `composer.json` file in the module's root directory and adding the
+appropriate requirements. Refer to [Composer's documentation](https://getcomposer.org/doc/01-basic-usage.md#composer-json-project-setup)
+for details on adding requirements.
+
+It is recommended to use [ranges](https://getcomposer.org/doc/01-basic-usage.md#package-versions)
+and [tilde](https://getcomposer.org/doc/01-basic-usage.md#next-significant-release-tilde-operator-)
+operators wherever possible to mitigate dependency conflicts.
+
+You can also implement `hook_composer_json_alter(&$json)` to modify the data
+used to build the consolidated `composer.json` file before it is written.
 
 ## Why can't you just ... ?
 
