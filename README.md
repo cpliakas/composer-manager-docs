@@ -6,9 +6,9 @@ modules to more easily use best-in-breed libraries that are managed by
 [Composer](https://getcomposer.org/).
 
 There are [many challenges](#why-cant-you-just--) when using Composer with
-Drupal, so the primary goal of this module is to work around the challenges by
-wrapping common Drupal workflows around Composer so that so that module
-developers can use the [thousands of standards-compliant, platform agnostic PHP
+Drupal, so the primary goal of this module is to work around them by wrapping
+Composer with common Drupal workflows so that so that module developers and site
+builders can use the [thousands of standards-compliant, platform agnostic PHP
 libraries](https://packagist.org/statistics) with as little friction as
 possible.
 
