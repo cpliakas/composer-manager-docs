@@ -14,10 +14,13 @@ possible.
 
 ## Installation
 
-* Follow the [standard module installation guide](https://drupal.org/documentation/install/modules-themes).
+* Follow the standard [Drupal module installation](https://drupal.org/documentation/install/modules-themes)
+  process
 * Refer to the [Maintaining Dependencies](#maintaining-dependencies)
   section for installing and updating third-party libraries required by
-  contributed modules.
+  contributed modules
+* Refer to the [Best Practices](#best-practices) section for recommended module
+  configurations according to your environment
 
 ## Usage For Site Builders
 
@@ -135,9 +138,9 @@ used to build the consolidated `composer.json` file before it is written.
 
 ## Why can't you just ... ?
 
-The problems that Composer Manager solves tend to be more complex than they
-first appear. This section addresses some of the common questions that are asked
-as to why Composer Manager works the way it does.
+The problems that Composer Manager solve tend to be more complex than they first
+appear. This section addresses some of the common questions that are asked as to
+why Composer Manager works the way it does.
 
 ### Why can't you just run "composer install" in each module's root directory?
 
