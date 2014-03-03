@@ -37,8 +37,8 @@ and is strongly recommended.
 
 If you do not wish to use Drush, you must manually use Composer's command line
 tool to install and update dependencies whenever modules are enabled or
-disabled. The following workflow is required to maintain the required
-dependencies:
+disabled. The following steps illustrate the workflow to maintain the
+dependencies required by contributed module:
 
 * Visit `admin/modules` and enable / disable the modules that have dependencies
 * Change into the directory that the composer.json file was generated in as
@@ -46,7 +46,7 @@ dependencies:
 * If necessary, [download and install](https://github.com/composer/composer/blob/master/doc/01-basic-usage.md#installation)
   the Composer tool
 * Run `php composer.phar install --no-dev` on the command line, replace
-  `install` with `update` when updating dependencies.
+  `install` with `update` when updating dependencies
 
 Refer to [Composer's documentaton](https://getcomposer.org/doc/) for more
 details on how Composer works.
