@@ -136,6 +136,25 @@ operators wherever possible to mitigate dependency conflicts.
 You can also implement `hook_composer_json_alter(&$json)` to modify the data
 used to build the consolidated `composer.json` file before it is written.
 
+### Requiring Guzzle, Symfony, Or Zend Framework (D8 Only)
+
+If your module requires or has a dependency on `guzzle/guzzle`,
+`symfony/symfony`, or `zendframework/zendframework` you need to take one of the
+following actions to avoid duplicate code and potential version mismatches:
+
+* Depend on the `guzzle_dependency`, `symfony_dependency`, or
+  `zendframework_dependency` modules as appropriate
+* Implement `hook_composer_json_alter()` and perform the same modifications as
+  the appropriate "*_dependency" module
+
+A detailed description of the reason why these actions need to be taken can be
+found at https://drupal.org/comment/8528371#comment-8528371. The discussion
+afterwards provides the rationale and barriers that guided the current solution.
+
+### Maintaining A Soft Dependency On Composer Manager
+
+@todo
+
 ## Why can't you just ... ?
 
 The problems that Composer Manager solves tend to be more complex than they
@@ -230,7 +249,7 @@ There are multiple challenges posed by Composer Manager's technique:
 * Must implement `hook_composer_json_alter()` in a module to modify
   `composer.json`
 
-### Why can't you just modify Drupal core's composer.json file (D8)?
+### Why can't you just modify Drupal core's composer.json file (D8 Only)?
 
 Modifying Drupal core's `composer.json` file provides a single library space and
 uses the autoloader that is registered in index.php. Relying on this technique
