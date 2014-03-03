@@ -3,14 +3,15 @@
 ## Why can't you just ... ?
 
 The problems that Composer Manager solves tend to be more complex than they
-first appear. This page addresses some of the common questions that are asked as
+first appear. This section addresses some of the common questions that are asked as
 to why Composer Manager works the way it does.
 
 ### Why can't you just run "composer install" in each module's root directory?
 
-If a module contains a `composer.json` file, running `composer install` will
-download all requirements and dependencies `vendor/` directories in each module
-with their own autoloaders. Relying on this technique poses multiple challenges:
+If a module contains a `composer.json` file, running `composer install` in its
+root directory will download all requirements and dependencies to `vendor/`
+directories with their own autoloaders. Relying on this technique poses multiple
+challenges:
 
 * Duplicate library code when modules have the same dependencies
 * Unexpected classes being sourced depending on which autoloader is registered
@@ -93,7 +94,7 @@ There are multiple challenges posed by Composer Manager's technique:
 * Must implement `hook_composer_json_alter()` in a module to modify
   `composer.json`
 
-## Why can't you just modify Drupal core's composer.json file (D8)?
+### Why can't you just modify Drupal core's composer.json file (D8)?
 
 Modifying Drupal core's `composer.json` file provides a single library space and
 uses the autoloader that is registered in index.php. Relying on this technique
@@ -107,8 +108,10 @@ poses multiple challenges:
 
 #### Composer Manager's Solution
 
-Same as above
+Refer to the [Why can't you just manually maintain a composer.json file?](#composer-managers-solution-1)
+section.
 
 #### Challenges With Composer Manager
 
-Same as above
+Refer to the [Why can't you just manually maintain a composer.json file?](#challenges-with-composer-manager-1)
+section.
