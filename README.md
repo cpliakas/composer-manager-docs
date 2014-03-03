@@ -39,6 +39,13 @@ appropriate Composer commands to install and update the required dependencies.
 This technique introduces the least amount of friction with existing workflows
 and is strongly recommended.
 
+The following Drush commands are also avilable:
+
+* `drush composer-json-rebuild`: Force a rebuild of the consolidated
+  `compsoer.json` file.
+* `drush composer-manager [COMMAND] [OPTIONS]`: Pass through commands to
+  Composer
+
 #### Manually With Composer
 
 If you do not wish to use Drush, you must manually use Composer's command line
@@ -150,6 +157,10 @@ following actions to avoid duplicate code and potential version mismatches:
 A detailed description of why these actions are necessary can be found at
 https://drupal.org/comment/8528371#comment-8528371. The discussion afterwards
 provides the barriers and rationale that guided the current solution.
+
+*NOTE:* You do ONLY have to take the actions above when requiring the full
+Guzzle, Symfony, or Zend Framework packages and NOT when requiring their
+components e.g. `guzzle/service`, `symfony/filesystem`, etc.
 
 ### Maintaining A Soft Dependency On Composer Manager
 
