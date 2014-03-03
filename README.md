@@ -42,7 +42,7 @@ and is strongly recommended.
 The following Drush commands are also avilable:
 
 * `drush composer-json-rebuild`: Force a rebuild of the consolidated
-  `compsoer.json` file.
+  `composer.json` file
 * `drush composer-manager [COMMAND] [OPTIONS]`: Pass through commands to
   Composer
 
