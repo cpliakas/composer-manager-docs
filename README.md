@@ -1,10 +1,22 @@
 # Composer Manager
 
+[Composer Manager](https://drupal.org/project/composer_manager) provides a
+gateway to the larger PHP community by enabling [Drupal](http://drupal.org)
+modules to more easily use best-in-breed libraries that are managed by
+[Composer](https://getcomposer.org/).
+
+There are [many challenges](#why-cant-you-just--) when using Composer to with
+Drupal, so the primary goal of this module is to work around the challenges by
+wrapping common Drupal workflows around Composer so that so that module
+developers can use the [thousands of standards-compliant, platform agnostic PHP
+libraries](https://packagist.org/statistics) with as little friction as
+possible.
+
 ## Why can't you just ... ?
 
 The problems that Composer Manager solves tend to be more complex than they
-first appear. This section addresses some of the common questions that are asked as
-to why Composer Manager works the way it does.
+first appear. This section addresses some of the common questions that are asked
+as to why Composer Manager works the way it does.
 
 ### Why can't you just run "composer install" in each module's root directory?
 
