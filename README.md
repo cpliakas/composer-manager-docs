@@ -158,7 +158,7 @@ A detailed description of why these actions are necessary can be found at
 https://drupal.org/comment/8528371#comment-8528371. The discussion afterwards
 provides the barriers and rationale that guided the current solution.
 
-*NOTE:* You do ONLY have to take the actions above when requiring the full
+*NOTE:* You ONLY have to take the actions above when requiring the full
 Guzzle, Symfony, or Zend Framework packages and NOT when requiring their
 components e.g. `guzzle/service`, `symfony/filesystem`, etc.
 
