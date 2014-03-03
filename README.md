@@ -18,7 +18,7 @@ possible.
 * Refer to the [Usage For Site Builders](#usage-for-site-builders) section for
   installing and updating third-party libraries required by contributed modules.
 
-## Usage For Site Builders
+## Usage For Site Builders - Maintaining Dependencies
 
 As modules are enabled and disabled, Composer Manager maintains a list of their
 requirements. There are two ways to install and update the contributed
