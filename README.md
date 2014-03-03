@@ -5,12 +5,51 @@ gateway to the larger PHP community by enabling [Drupal](http://drupal.org)
 modules to more easily use best-in-breed libraries that are managed by
 [Composer](https://getcomposer.org/).
 
-There are [many challenges](#why-cant-you-just--) when using Composer to with
+There are [many challenges](#why-cant-you-just--) when using Composer with
 Drupal, so the primary goal of this module is to work around the challenges by
 wrapping common Drupal workflows around Composer so that so that module
 developers can use the [thousands of standards-compliant, platform agnostic PHP
 libraries](https://packagist.org/statistics) with as little friction as
 possible.
+
+## Installation
+
+* Follow the [standard module installation guide](https://drupal.org/documentation/install/modules-themes).
+* Refer to the [Usage For Site Builders](#usage-for-site-builders) section for
+  installing and updating third-party libraries required by contributed modules.
+
+## Usage For Site Builders
+
+As modules are enabled and disabled, Composer Manager maintains a list of their
+requirements. There are two ways to install and update the contributed
+modules' dependencies:
+
+### Automatically With Drush (Recommended)
+
+Using `drush en` and `drush dis` to enable and disable modules respectively will
+automatically generate the consolidated `composer.json` file and run the
+appropriate Composer commands to install and update the required dependencies.
+
+This technique introduces the least amount of friction with existing workflows
+and is strongly recommended.
+
+### Manually With Composer
+
+If you do not wish to use Drush, you must manually use Composer's command line
+tool to install and update dependencies whenever modules are enabled or
+disabled. The following workflow is required to maintain the required
+dependencies:
+
+* Visit `admin/modules` and enable / disable the modules that have dependencies
+* Change into the directory that the composer.json file was generated in as
+  noted in the UI
+* If necessary, [download and install](https://github.com/composer/composer/blob/master/doc/01-basic-usage.md#installation)
+  the Composer tool
+* Run `php composer.phar install --no-dev` on the command line, replace
+  `install` with `update` when updating dependencies.
+
+Refer to [Composer's documentaton](https://getcomposer.org/doc/) for more
+details on how Composer works.
 
 ## Why can't you just ... ?
 
