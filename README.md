@@ -147,9 +147,9 @@ following actions to avoid duplicate code and potential version mismatches:
 * Implement `hook_composer_json_alter()` and perform the same modifications as
   the appropriate "*_dependency" module
 
-A detailed description of the reason why these actions need to be taken can be
-found at https://drupal.org/comment/8528371#comment-8528371. The discussion
-afterwards provides the rationale and barriers that guided the current solution.
+A detailed description of why these actions are necessary can be found at
+https://drupal.org/comment/8528371#comment-8528371. The discussion afterwards
+provides the barriers and rationale that guided the current solution.
 
 ### Maintaining A Soft Dependency On Composer Manager
 
