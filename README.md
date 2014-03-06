@@ -83,8 +83,17 @@ modifying the following options in Composer Manager's settings page.
 You can also set the options in settings.php by adding the following variables:
 
 ```php
+// Drupal 6 & 7
+
 $conf['composer_manager_vendor_dir'] = '../vendor';
 $conf['composer_manager_file_dir'] = '../';
+```
+
+```php
+// Drupal 8
+
+$config['composer_manager.settings']['vendor_dir'] = '../vendor';
+$config['composer_manager.settings']['file_dir'] = '../';
 ```
 
 *NOTE:* The recommended settings are not the defaults because we cannot assume
@@ -100,10 +109,21 @@ can differ between sites. Add the following snippet to `settings.php` to group
 the libraries by site in a directory outside of the document root:
 
 ```php
+// Drupal 6 & 7
+
 // Capture the site dir, e.g. "default", "example.localhost", etc.
 $site_dir = basename(__DIR__);
 $conf['composer_manager_vendor_dir'] = '../lib/' . $site_dir . '/vendor';
 $conf['composer_manager_file_dir'] = '../lib/' . $site_dir;
+```
+
+```php
+// Drupal 8
+
+// Capture the site dir, e.g. "default", "example.localhost", etc.
+$site_dir = basename(__DIR__);
+$config['composer_manager.settings']['vendor_dir'] = '../lib/' . $site_dir . '/vendor';
+$config['composer_manager.settings']['file_dir'] = '../lib/' . $site_dir;
 ```
 
 *NOTE:* The `sites/*/` directories may seem like an obvious location for the
@@ -122,10 +142,22 @@ environment variable, adding the following snippet to `settings.php` will
 disable the options where appropriate:
 
 ```php
+// Drupal 6 & 7
+
 // Modify the logic according to your environment.
 if (getenv('APP_ENV') == 'prod') {
   $conf['composer_manager_autobuild_file'] = 0;
   $conf['composer_manager_autobuild_packages'] = 0;
+}
+```
+
+```php
+// Drupal 8
+
+// Modify the logic according to your environment.
+if (getenv('APP_ENV') == 'prod') {
+  $config['composer_manager.settings']['autobuild_file'] = 0;
+  $config['composer_manager.settings']['autobuild_packages'] = 0;
 }
 ```
 
