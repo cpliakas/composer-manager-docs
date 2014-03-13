@@ -177,9 +177,9 @@ creating a `composer.json` file in the module's root directory and adding the
 appropriate requirements. Refer to [Composer's documentation](https://getcomposer.org/doc/01-basic-usage.md#composer-json-project-setup)
 for details on adding requirements.
 
-It is recommended to use [ranges](https://getcomposer.org/doc/01-basic-usage.md#package-versions)
-and [tilde](https://getcomposer.org/doc/01-basic-usage.md#next-significant-release-tilde-operator-)
-operators wherever possible to mitigate dependency conflicts.
+It is recommended to use [version ranges](https://getcomposer.org/doc/01-basic-usage.md#package-versions)
+and [tilde operators](https://getcomposer.org/doc/01-basic-usage.md#next-significant-release-tilde-operator-)
+wherever possible to mitigate dependency conflicts.
 
 You can also implement `hook_composer_json_alter(&$json)` to modify the data
 used to build the consolidated `composer.json` file before it is written.
