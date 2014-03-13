@@ -26,9 +26,10 @@ possible.
 
 ### Maintaining Dependencies
 
-As modules are enabled and disabled, Composer Manager maintains a list of their
-requirements. There are two ways to install and update the contributed
-modules' dependencies:
+As modules are enabled and disabled, Composer Manager gathers their requirements
+and generates a consolidated `composer.json` file in the "Composer File
+Directory" as configured in Composer Manager's settings page. There are two ways
+to install and update the contributed modules' dependencies:
 
 #### Automatically With Drush (Recommended)
 
@@ -39,12 +40,13 @@ appropriate Composer commands to install and update the required dependencies.
 This technique introduces the least amount of friction with existing workflows
 and is strongly recommended.
 
-The following Drush commands are also avilable:
+The following Drush commands are also available:
 
 * `drush composer-json-rebuild`: Force a rebuild of the consolidated
   `composer.json` file
 * `drush composer-manager [COMMAND] [OPTIONS]`: Pass through commands to
-  Composer
+  Composer, refer to the [cli tool's documentation](https://getcomposer.org/doc/03-cli.md)
+  for available commands and options.
 
 #### Manually With Composer
 
@@ -54,8 +56,9 @@ disabled. The following steps illustrate the workflow to maintain the
 dependencies required by contributed module:
 
 * Visit `admin/modules` and enable / disable the modules that have dependencies
-* Change into the directory that the composer.json file was generated in as
-  noted in the UI
+* Change into the the "Composer File Directory" as configured in Composer
+  Manager's settings page which is where the consolidated `composer.json` file
+  was generated
 * If necessary, [download and install](https://github.com/composer/composer/blob/master/doc/01-basic-usage.md#installation)
   the Composer tool
 * Run `php composer.phar install --no-dev` on the command line, replace
@@ -63,6 +66,12 @@ dependencies required by contributed module:
 
 Refer to [Composer's documentaton](https://getcomposer.org/doc/) for more
 details on how Composer works.
+
+### Configuring Composer Manager
+
+Visit `admin/config/system/composer-manager/settings` for Drupal 7 & 8 or
+`admin/settings/composer-manager` for Drupal 6 as a user with the `administer
+site configuration` permission to configure Composer Manager.
 
 ### Best Practices
 
