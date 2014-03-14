@@ -70,8 +70,8 @@ details on how Composer works.
 ### Configuring Composer Manager
 
 Visit `admin/config/system/composer-manager/settings` for Drupal 7 & 8 or
-`admin/settings/composer-manager` for Drupal 6 as a user with the `administer
-site configuration` permission to configure Composer Manager.
+`admin/settings/composer-manager/settings` for Drupal 6 as a user with the
+`administer site configuration` permission to configure Composer Manager.
 
 ### Best Practices
 
