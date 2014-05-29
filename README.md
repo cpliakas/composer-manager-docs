@@ -207,6 +207,22 @@ components e.g. `guzzle/service`, `symfony/filesystem`, etc.
 
 @todo
 
+### Accessing The ClassLoader Object
+
+Once the autoloader is registered, you can retrieve the ClassLoader object by
+calling `\ComposerAutoloaderInitComposerManager::getLoader()`. The following
+example uses this technique with Doctrine's Annotations library which requires
+access to the loader object.
+
+```php
+
+use Doctrine\Common\Annotations\AnnotationRegistry;
+
+$loader = \ComposerAutoloaderInitComposerManager::getLoader();
+AnnotationRegistry::registerLoader(array($loader, 'loadClass'));
+
+```
+
 ## Why can't you just ... ?
 
 The problems that Composer Manager solves tend to be more complex than they
