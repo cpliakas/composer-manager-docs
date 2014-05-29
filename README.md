@@ -207,6 +207,7 @@ components e.g. `guzzle/service`, `symfony/filesystem`, etc.
 
 @todo
 
+<<<<<<< HEAD
 ### Accessing The ClassLoader Object
 
 Once the autoloader is registered, you can retrieve the ClassLoader object by
@@ -222,6 +223,12 @@ $loader = \ComposerAutoloaderInitComposerManager::getLoader();
 AnnotationRegistry::registerLoader(array($loader, 'loadClass'));
 
 ```
+=======
+### Relying on composer manager in .install
+
+Composer manager will automatically handle the autoloader in hook_init(), so modules generally don't have to worry about triggering the autoloader. However there are occasions where hook_init() isn't invoked such as during install and update.php. If you rely on the autoloader in a .install file, you have to make sure the autoloader is triggered by running composer_manager_register_autoloader() at the beginning of your update function or your hook_install() implementation.
+
+>>>>>>> f58d3e6c5ea7529bcbfc88a1df5733df3dacba5c
 
 ## Why can't you just ... ?
 
