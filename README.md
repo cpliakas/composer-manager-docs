@@ -112,7 +112,7 @@ automatic building of `composer.json` works out of the box.
 
 #### Multisite
 
-It is recommended that each multisite installation has it's own library space
+It is recommended that each multisite installation has its own library space
 since the dependencies are tied to which modules are enabled or disabled and
 can differ between sites. Add the following snippet to `settings.php` to group
 the libraries by site in a directory outside of the document root:
