@@ -186,7 +186,7 @@ used to build the consolidated `composer.json` file before it is written.
 
 ### Requiring Full Symfony, Zend Framework Packages(D8 Only)
 
-If your module requires or has a dependency on `symfony/symfony`, or
+If your module requires or has a dependency on `symfony/symfony` or
 `zendframework/zendframework` you need to take one of the
 following actions to avoid duplicate code and potential version mismatches:
 
