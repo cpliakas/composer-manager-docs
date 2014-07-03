@@ -184,14 +184,14 @@ wherever possible to mitigate dependency conflicts.
 You can also implement `hook_composer_json_alter(&$json)` to modify the data
 used to build the consolidated `composer.json` file before it is written.
 
-### Requiring Guzzle, Symfony, Or Zend Framework (D8 Only)
+### Requiring Full Symfony, Zend Framework Packages(D8 Only)
 
-If your module requires or has a dependency on `guzzle/guzzle`,
-`symfony/symfony`, or `zendframework/zendframework` you need to take one of the
+If your module requires or has a dependency on `symfony/symfony`, or
+`zendframework/zendframework` you need to take one of the
 following actions to avoid duplicate code and potential version mismatches:
 
-* Depend on the `guzzle_dependency`, `symfony_dependency`, or
-  `zendframework_dependency` modules as appropriate
+* Depend on the `symfony_dependency` or `zendframework_dependency` modules as
+  appropriate
 * Implement `hook_composer_json_alter()` and perform the same modifications as
   the appropriate "*_dependency" module
 
@@ -199,9 +199,9 @@ A detailed description of why these actions are necessary can be found at
 https://drupal.org/comment/8528371#comment-8528371. The discussion afterwards
 provides the barriers and rationale that guided the current solution.
 
-*NOTE:* You ONLY have to take the actions above when requiring the full
-Guzzle, Symfony, or Zend Framework packages and NOT when requiring their
-components e.g. `guzzle/service`, `symfony/filesystem`, etc.
+*NOTE:* You ONLY have to take the actions above when requiring the full Symfony
+or Zend Framework packages and NOT when requiring their components e.g.
+`symfony/filesystem`.
 
 ### Maintaining A Soft Dependency On Composer Manager
 
