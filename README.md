@@ -1,4 +1,3 @@
 # Composer Manager Documentation
 
-**Deprecated** in fafor of https://www.drupal.org/node/2405789
-
+**Deprecated** in favor of https://www.drupal.org/node/2405789
